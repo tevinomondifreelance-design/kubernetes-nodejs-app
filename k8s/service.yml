@@ -3,6 +3,7 @@ kind: Service
 
 metadata:
   name: nodejs-service
+  namespace: nodejs
 
 spec:
   type: NodePort
@@ -11,7 +12,6 @@ spec:
     app: nodejs-app
 
   ports:
-    - protocol: TCP
-      port: 3000
-      targetPort: 3000
-      nodePort: 30080
+  - port: 3000
+    targetPort: 3000
+    nodePort: 30081

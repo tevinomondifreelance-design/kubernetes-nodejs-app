@@ -3,6 +3,7 @@ kind: Deployment
 
 metadata:
   name: nodejs-deployment
+  namespace: nodejs
 
 spec:
   replicas: 2
@@ -19,7 +20,12 @@ spec:
     spec:
       containers:
       - name: nodejs-container
-        image: tevinportfolio/docker-nodejs-app:latest
+        image: tevinportfolio/kubernetes-nodejs-app:latest
+        imagePullPolicy: Always
 
         ports:
         - containerPort: 3000
+
+        envFrom:
+        - configMapRef:
+            name: nodejs-config

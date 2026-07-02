@@ -3,6 +3,7 @@ kind: ConfigMap
 
 metadata:
   name: nodejs-config
+  namespace: nodejs
 
 data:
   APP_NAME: "Kubernetes Node.js App"
