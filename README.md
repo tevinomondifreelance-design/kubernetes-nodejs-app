@@ -220,15 +220,15 @@ Then display them:
 ```markdown
 ## Home Page
 
-![Home](screenshots/home-page.png)
+![Home](screenshots/home-page.jpg)
 
 ## Docker Container
 
-![Docker](screenshots/docker-container.png)
+![Docker](screenshots/docker-container.jpg)
 
 ## Kubernetes Pods
 
-![Pods](screenshots/kubernetes-pods.png)
+![Pods](screenshots/kubernetes-pods.jpg)
 ```
 
 ---
