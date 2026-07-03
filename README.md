@@ -219,15 +219,21 @@ Then display them:
 
 ```markdown
 ## Home Page
-
+<p align="center">
+<img src="screenshots/home-page.jpg" width="800">
+</p>
 ![Home](screenshots/home-page.jpg)
 
 ## Docker Container
-
+<p align="center">
+<img src="screenshots/docker-container.jpg" width="800">
+</p>
 ![Docker](screenshots/docker-container.jpg)
 
 ## Kubernetes Pods
-
+<p align="center">
+<img src="screenshots/kubernetes-pods.jpg" width="800">
+</p>
 ![Pods](screenshots/kubernetes-pods.jpg)
 ```
 
