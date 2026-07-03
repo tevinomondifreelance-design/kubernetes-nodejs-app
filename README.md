@@ -1,26 +1,52 @@
-# Kubernetes Node.js Portfolio Application
+# Kubernetes Node.js Application
 
-A modern Node.js web application containerized with Docker and deployed on Kubernetes using Docker Desktop. This project demonstrates containerization, Kubernetes resource management, service exposure, configuration management, and deployment of a production-style application.
+![Node.js](https://img.shields.io/badge/Node.js-22.x-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-4.x-000000?style=for-the-badge&logo=express&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Deployed-326CE5?style=for-the-badge&logo=kubernetes&logoColor=white)
+![Git](https://img.shields.io/badge/Git-Version_Control-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
+---
+A production-style **Node.js web application** containerized with **Docker** and deployed on **Kubernetes** using Docker Desktop Kubernetes.
+
+This project demonstrates core DevOps concepts including containerization, Kubernetes deployments, ConfigMaps, Services, Namespaces, and application orchestration.
+
+---
+## Highlights
+
+- Dockerized Node.js web application
+- Kubernetes Deployment with 2 replicas
+- Kubernetes Service (NodePort)
+- ConfigMap for application configuration
+- Dedicated Kubernetes Namespace
+- Responsive banking-style frontend
+- Docker Desktop Kubernetes deployment
+- Production-style project structure
+---
+## Project Status
+
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Docker_Desktop-blue?style=for-the-badge)
+![OS](https://img.shields.io/badge/OS-Windows_11-0078D6?style=for-the-badge&logo=windows)
 ---
 
 ## Project Overview
 
-This project showcases how to deploy a Node.js application into a Kubernetes cluster using:
+This project showcases how to:
 
-- Docker
-- Kubernetes
-- Docker Desktop Kubernetes
-- ConfigMaps
-- Deployments
-- Services
-- Namespaces
-
-The application serves a responsive banking-themed portfolio landing page and demonstrates Kubernetes orchestration concepts.
+- Build a Node.js application
+- Containerize the application using Docker
+- Deploy the application to Kubernetes
+- Configure application settings with ConfigMaps
+- Expose the application using a NodePort Service
+- Manage workloads with Kubernetes Deployments
+- Organize resources within a dedicated Namespace
 
 ---
 
-## Technologies Used
+## Tech Stack
 
 - Node.js
 - Express.js
@@ -29,8 +55,7 @@ The application serves a responsive banking-themed portfolio landing page and de
 - JavaScript
 - Docker
 - Kubernetes
-- Docker Desktop
-- kubectl
+- Docker Desktop Kubernetes
 - Git
 - GitHub
 
@@ -38,7 +63,7 @@ The application serves a responsive banking-themed portfolio landing page and de
 
 ## Project Structure
 
-```
+```text
 kubernetes-nodejs-app
 │
 ├── app
@@ -46,7 +71,6 @@ kubernetes-nodejs-app
 │   │   ├── index.html
 │   │   ├── styles.css
 │   │   └── script.js
-│   │
 │   ├── package.json
 │   └── server.js
 │
@@ -57,6 +81,9 @@ kubernetes-nodejs-app
 │   └── configmap.yaml
 │
 ├── screenshots
+│   ├── home-page.jpg
+│   ├── docker-container.jpg
+│   └── kubernetes-pods.jpg
 │
 ├── Dockerfile
 ├── .dockerignore
@@ -66,258 +93,139 @@ kubernetes-nodejs-app
 
 ---
 
-# Features
-
-- Responsive Banking Portfolio Landing Page
-- Modern UI
-- Loading Screen Animation
-- Docker Containerized Application
-- Kubernetes Deployment
-- Multiple Pod Replicas
-- ConfigMap Configuration
-- Namespace Isolation
-- NodePort Service
-- Production-ready Folder Structure
-
----
-
-# Kubernetes Resources
-
-This project includes the following Kubernetes resources:
-
-| Resource | Purpose |
-|-----------|----------|
-| Namespace | Isolates project resources |
-| Deployment | Manages Pods and Replicas |
-| Service | Exposes the application |
-| ConfigMap | Stores application configuration |
-
----
-
 # Docker Build
 
-Build the image
+Build the Docker image
 
 ```bash
 docker build -t kubernetes-nodejs-app .
 ```
 
-Run locally
+Run the container
 
 ```bash
-docker run -d \
---name k8s-node-app \
--p 3000:3000 \
-kubernetes-nodejs-app
+docker run -d -p 3000:3000 --name k8s-node-app kubernetes-nodejs-app
 ```
 
-Open
+View running containers
 
-```
-http://localhost:3000
+```bash
+docker ps
 ```
 
 ---
 
 # Kubernetes Deployment
 
-Create namespace
+Create the namespace
 
 ```bash
 kubectl apply -f k8s/namespace.yaml
 ```
 
-Deploy resources
+Deploy all Kubernetes resources
 
 ```bash
 kubectl apply -f k8s/
 ```
 
-Verify resources
-
-```bash
-kubectl get all -n nodejs
-```
-
----
-
-## Example Output
-
-Pods
+View pods
 
 ```bash
 kubectl get pods -n nodejs
 ```
 
-Example
-
-```
-NAME                                  READY   STATUS
-nodejs-deployment-xxxxx               1/1     Running
-nodejs-deployment-yyyyy               1/1     Running
-```
-
-Services
+View services
 
 ```bash
 kubectl get svc -n nodejs
 ```
 
-Example
+View deployments
 
-```
-NAME             TYPE       PORT(S)
-
-nodejs-service   NodePort   3000:30081/TCP
+```bash
+kubectl get deployments -n nodejs
 ```
 
 ---
 
-# Accessing the Application
+# Kubernetes Resources
 
-After deployment
+This project includes:
 
-```
-http://localhost:30081
-```
+- Namespace
+- Deployment
+- Service (NodePort)
+- ConfigMap
 
-or
+---
 
-```bash
-kubectl port-forward service/nodejs-service 3000:3000 -n nodejs
-```
+# Application Features
 
-Then open
-
-```
-http://localhost:3000
-```
+- Responsive banking-style portfolio homepage
+- Loading animation
+- Modern UI
+- Docker containerized
+- Kubernetes deployment
+- Configurable through ConfigMaps
+- Production-ready project structure
 
 ---
 
 # Screenshots
 
-## Application
-
-> Add screenshots inside the **screenshots/** folder.
-
-Example
-
-```
-screenshots/
-
-home-page.png
-
-kubernetes-pods.png
-
-docker-container.png
-
-docker-images.png
-```
-
-Then display them:
-
-```markdown
 ## Home Page
-<p align="center">
-<img src="screenshots/home-page.jpg" width="800">
-</p>
-![Home](screenshots/home-page.jpg)
 
-## Docker Container
 <p align="center">
-<img src="screenshots/docker-container.jpg" width="800">
+  <img src="./screenshots/home-page.jpg" alt="Home Page" width="900">
 </p>
-![Docker](screenshots/docker-container.jpg)
-
-## Kubernetes Pods
-<p align="center">
-<img src="screenshots/kubernetes-pods.jpg" width="800">
-</p>
-![Pods](screenshots/kubernetes-pods.jpg)
-```
 
 ---
 
-# Useful Commands
+## Docker Container
 
-Build Docker image
+<p align="center">
+  <img src="./screenshots/docker-container.jpg" alt="Docker Container" width="900">
+</p>
 
-```bash
-docker build -t kubernetes-nodejs-app .
-```
+---
 
-Run Docker container
+## Kubernetes Pods
 
-```bash
-docker run -d -p 3000:3000 kubernetes-nodejs-app
-```
-
-Check containers
-
-```bash
-docker ps
-```
-
-View logs
-
-```bash
-docker logs <container-id>
-```
-
-Apply Kubernetes manifests
-
-```bash
-kubectl apply -f k8s/
-```
-
-View Pods
-
-```bash
-kubectl get pods -n nodejs
-```
-
-Describe Deployment
-
-```bash
-kubectl describe deployment nodejs-deployment -n nodejs
-```
-
-Delete resources
-
-```bash
-kubectl delete -f k8s/
-```
+<p align="center">
+  <img src="./screenshots/kubernetes-pods.jpg" alt="Kubernetes Pods" width="900">
+</p>
 
 ---
 
 # Skills Demonstrated
 
-- Docker Containerization
-- Kubernetes Deployments
-- Kubernetes Services
+- Docker
+- Dockerfile creation
+- Docker image management
+- Containerization
+- Kubernetes
+- Deployments
+- Services
 - ConfigMaps
 - Namespaces
-- NodePort Networking
-- Container Lifecycle Management
-- Express.js Development
-- Linux Containers
-- YAML Configuration
-- Git Version Control
-- Infrastructure as Code
+- Node.js
+- Express.js
+- Linux CLI
+- Git
+- GitHub
 
 ---
 
 # Future Improvements
 
-- Horizontal Pod Autoscaler
-- Ingress Controller
-- TLS/HTTPS
 - Helm Charts
-- CI/CD with GitHub Actions
-- Docker Hub Image Publishing
-- AWS EKS Deployment
-- Monitoring with Prometheus & Grafana
+- Ingress Controller
+- Horizontal Pod Autoscaler
+- Persistent Volumes
+- GitHub Actions CI/CD
+- Prometheus & Grafana Monitoring
+- Argo CD GitOps Deployment
 
 ---
 
@@ -325,16 +233,16 @@ kubectl delete -f k8s/
 
 **Tevin Omondi**
 
-GitHub
+DevOps Engineer | Cloud Engineer | Backend Developer
 
+GitHub:
 https://github.com/tevinomondifreelance-design
 
-LinkedIn
-
-https://linkedin.com/in/tevin-omondi
+LinkedIn:
+https://www.linkedin.com/in/tevin-omondi
 
 ---
 
 ## License
 
-This project is intended for educational and portfolio purposes.
+This project is licensed under the MIT License.
