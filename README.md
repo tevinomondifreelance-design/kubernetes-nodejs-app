@@ -235,11 +235,12 @@ This project includes:
 
 DevOps Engineer | Cloud Engineer | Backend Developer
 
+LinkedIn:
+https://www.linkedin.com/in/tevin-omondi-131141355
+
 GitHub:
 https://github.com/tevinomondifreelance-design
 
-LinkedIn:
-https://www.linkedin.com/in/tevin-omondi
 
 ---
 
